@@ -1,7 +1,9 @@
 package com.gfss.website.com.service.impl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -19,11 +21,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EmailServiceImpl implements EmailService {
 
-	private final JavaMailSenderImpl mailSender;
+	private final JavaMailSender mailSender;
 
-     // Use your sender email
-
-    public EmailServiceImpl(JavaMailSenderImpl mailSender) {
+    @Autowired
+    public EmailServiceImpl(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
